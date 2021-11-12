@@ -1,16 +1,22 @@
 {
   "development": {
-    "database": "express_auth_development",
+    "database": "transliterary_development",
+    "username": "postgres",
+    "password": "password",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "express_auth_test",
+    "database": "transliterary_test",
+    "username": "postgres",
+    "password": "password",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "express_auth_production",
+    "database": "transliterary_production",
+    "username": "postgres",
+    "password": "password",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
