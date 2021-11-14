@@ -2,6 +2,10 @@
 
 Here's how to download and run this application on your local mac:
 
+
+#Transliterary
+
+
 * Fork & Clone
 * `npm i` to install dependencies
 * create database with `createdb express_auth_development` ***OR CHANGE DB NAME TO MATCH THE NAME OF YOUR APP*** _(you'll need to make changes to `config/config.json` too)_
