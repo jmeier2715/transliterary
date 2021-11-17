@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Express Auth</title>
+    <title>Transliterary</title>
 </head>
 <body>
     <header>
-        <h1>Express Authentication Boilerplate</h1>
+        <h1>TransLiterary</h1>
+        <h1>Take any text and change it to a language of your choice!</h1>
         <nav>
             <ul>
               <% if (!currentUser) { %>
@@ -17,6 +18,7 @@
               <% } else { %>
                 <li><a href="/auth/logout">Logout</a></li>
                 <li><a href="/profile">Profile</a></li>
+                <li><a href="/auth/translate">translate</a></li>
               <% } %>
             </ul>
           </nav>

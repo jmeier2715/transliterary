@@ -11,10 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
     }
   };
   textSubmission.init({
-    id: DataTypes.INTEGER,
+    id:{
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+    },
     userId: DataTypes.INTEGER,
     languageId: DataTypes.INTEGER,
     title: DataTypes.STRING,

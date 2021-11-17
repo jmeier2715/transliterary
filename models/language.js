@@ -11,10 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.language.belongsTo(models.user)
     }
   };
   language.init({
-    id: DataTypes.INTEGER,
+    id:{
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+    },
     languageId: DataTypes.INTEGER
   }, {
     sequelize,
