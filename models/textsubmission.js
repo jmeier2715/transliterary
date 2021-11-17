@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
     },
     userId: DataTypes.INTEGER,
-    languageId: DataTypes.INTEGER,
+    languageId: DataTypes.STRING,
     title: DataTypes.STRING,
     content: DataTypes.TEXT,
     translation: DataTypes.TEXT
