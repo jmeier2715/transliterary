@@ -18,6 +18,7 @@ router.post('/signup', (req, res)=>{
     .then(([createdUser, wasCreated])=>{
         if(wasCreated){
             console.log(`just created the following user:`, createdUser)
+            console.log(req.body.email)
             // res.send('POST form data from signup.ejs, then redirect')
             passport.authenticate('local', {
                 successRedirect: '/', // !-> FLASH <-!
@@ -54,18 +55,50 @@ router.get('/logout', (req, res)=>{
 })
 
 
-var client_id = 'ouzOZBrOLS4ZiPoYx90i';
-var client_secret = 'FOdpVkSxFj';
-var query='hello'
-router.get('/translate', function (req, res) {
+// var client_id = 'ouzOZBrOLS4ZiPoYx90i';
+// var client_secret = 'FOdpVkSxFj';
+// var query='hello'
+// var api_url = 'https://openapi.naver.com/v1/papago/n2mt';
+// var request = require('request');
+
+router.get('/translate',(req, res)=>{
+   var api_url = 'https://openapi.naver.com/v1/papago/n2mt';
+   var request = require('request');
+//    var options = {
+//        url: api_url,
+//        form: {'source':`${req.body.preLanguage}`, 'target': `${req.body.postLanguage}`, 'text':`${req.body.translate}`,
+//        headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
+//         }
+//     }
+    console.log(body)
     res.render('auth/translate')
 })
+// router.post('/translate', (req, res)=>{
+    
+//     db.textSubmission.findOrCreate({
+//         where:{title:req.body.title},
+//         defaults: {
+//             content:req.body.translate,
+//             // translation: JSON.parse(req.body)
+//         }
+//     })
+//     .then(([createdTextSubmission, wasCreated])=>{
+//         if (wasCreated) {
+//             router.post(options, function (error, response, body) {
+//                      if (!error && response.statusCode == 200) {
+//                         console.log(req.body.translate)
+//                         res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
+//                        res.end(body);
+//                      } else {
+//                        res.status(response.statusCode).end();
+//                        console.log('error = ' + response.statusCode);
+//                      }
+//                    });
+//     }
+// })
 
-router.post('/translate'), (req, res)=>{
-    db.textSubmission.findOrCreate({
-        where:{languageId:req.body.preLanguage}
-    })
-}
+// })
+
 // router.get('/translate', function (req, res) {
 //    var api_url = 'https://openapi.naver.com/v1/papago/n2mt';
 //    var request = require('request');
@@ -74,7 +107,7 @@ router.post('/translate'), (req, res)=>{
 //        form: {'source':'en', 'target':'ko', 'text':query},
 //        headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
 //     };
-//    request.post(options, function (error, response, body) {
+//    router.post(options, function (error, response, body) {
 //      if (!error && response.statusCode == 200) {
 //        res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
 //        res.end(body);
