@@ -1,13 +1,13 @@
 <h1>Type Something You Want Translated!</h1>
 <form action="/auth/translate" method="POST">
     <label for="title">Title</label>
-    <input id="title" type="title" name="title">
+    <input id="title" type="text" name="title">
 
     <label for="preTranslate">Text:</label>
-    <input id="preTranslate" type="translate" name="translate">
+    <input id="preTranslate" type="text" name="translate">
     
-    <label for="language">Original Language:</label>
-        <select id="preLanguage" type="preLangauge" name="preLanguage">
+    <label for="prelanguage">Original Language:</label>
+        <select id="preLanguage" type="text" name="preLanguage">
             <option value="ko">Korean</option>
             <option value="en">English</option>
             <option value="ja">Japanese</option>
@@ -17,8 +17,8 @@
             <option value="it">Italian</option>
         </select>
     
-    <label for="newLanguage">Translate Language:</label>
-        <select id="postLanguage" type="postLanguage" name="postLanguage">
+    <label for="postLanguage">Translate Language:</label>
+        <select id="postLanguage" type="text" name="postLanguage">
             <option value="ko">Korean</option>
             <option value="en">English</option>
             <option value="ja">Japanese</option>
