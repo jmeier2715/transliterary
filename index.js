@@ -6,7 +6,7 @@ const session = require('express-session')
 const passport = require('./config/ppConfig')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
-
+const methodOverride = require('method-override');
 
 
 // views (ejs and layouts) set up
@@ -30,6 +30,8 @@ app.use(passport.session())
 // flash middleware (must go AFTER session middleware)
 app.use(flash())
 
+//method override middleware
+app.use(methodOverride('_method'));
 // custom middleware
 app.use((req, res, next) => {
     // before every route, attach the flash messages and current user to res.locals
@@ -40,7 +42,7 @@ app.use((req, res, next) => {
 
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
-app.use('/textsubmission', require('./controllers/textsubmissions'))
+app.use('/textsubmissions', require('./controllers/textsubmissions'))
 
 
 // home route
