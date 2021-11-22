@@ -6,25 +6,25 @@ const methodOverride = require('method-override');
 
 
 router.get('/',(req, res)=>{
-    res.render('auth/translate')
+    res.render('textsubmissions/translate')
 })
 
 // POST /articles - create a new post
-router.post('auth/translate', (req,res)=>{
+router.post('/translate', (req,res)=>{
     const request = require('request');
     db.textSubmission.findOrCreate({
                 where:{title:req.body.title},
                 defaults: {
                     content:req.body.translate,
-                    userId: req.body.user,
-                    createdAt: new Date(),
-                    updatedAt: new Date()
-                    // translation: JSON.parse(req.body)
+                    userId: res.locals.currentUser.id,
+                    languageId: req.body.preLanguage
             }
         })
 .then(([createdTextSubmission, wasCreated])=>{
   if (wasCreated) {
-    res.redirect('auth/translate')
+      console.log('testing if this is showing')
+    res.redirect('textsubmissions/translate')
+
   }else {
     res.status(response.statusCode).end();
     console.log('error = ' + response.statusCode);
@@ -35,19 +35,18 @@ router.post('auth/translate', (req,res)=>{
 })
 })
 
-// GET /articles/new - display form for creating new articles
+// GET /textsubmissions/new - display form for creating new textSubmissions
 router.get('/new', (req, res) => {
-    db.author.findAll()
-    .then((authors) => {
-      res.render('articles/new', { authors: authors })
+    db.textSubmission.findAll()
+    .then((textSubmissions) => {
+      res.render('textsubmissions/new', { textsubmissions: textsubmissions })
     })
     .catch((error) => {
       res.status(400).render('main/404')
     })
   })
 // router.post('/translate', (req, res)=>{
-//     const client_id = 'ouzOZBrOLS4ZiPoYx90i';
-//     const client_secret = 'FOdpVkSxFj';
+
 //     const api_url = 'https://openapi.naver.com/v1/papago/n2mt';
 //     const request = require('request');
 //     const preLanguage = req.body.preLanguage
