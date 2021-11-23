@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.language.belongsTo(models.user)
+      models.language.belongsTo(models.textSubmission)
     }
   };
   language.init({

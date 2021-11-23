@@ -11,13 +11,25 @@
     "username": "postgres",
     "password": "password",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "scripts": {
+      "dev": "react-scripts start",
+      "start": "serve -s build",
+      "build": "react-scripts build",
+      "test": "react-scripts test --env=jsdom",
+      "eject": "react-scripts eject",
+      "heroku-postbuild": "npm run build"
+      }
   },
   "production": {
-    "database": "transliterary_production",
-    "username": "postgres",
-    "password": "password",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "use_env_variable:": "DATABASE_URL",
+    "scripts": {
+      "dev": "react-scripts start",
+      "start": "serve -s build",
+      "build": "react-scripts build",
+      "test": "react-scripts test --env=jsdom",
+      "eject": "react-scripts eject",
+      "heroku-postbuild": "npm run build"
+      }
   }
 }
